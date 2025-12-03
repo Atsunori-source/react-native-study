@@ -1,7 +1,20 @@
-import React, { StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import React from "react";
+import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
 import { ThemedText } from "./themed-text";
 
-const TaskInput = ({taskText, setTaskText, handleSaveTask, isEditing}) => {
+type TaskInputProps = {
+  taskText: string;
+  setTaskText: (text: string) => void;
+  handleSaveTask: () => void;
+  isEditing: string | null;
+};
+
+const TaskInput = ({
+  taskText,
+  setTaskText,
+  handleSaveTask,
+  isEditing,
+}: TaskInputProps) => {
   return (
     <>
       <TextInput
@@ -10,8 +23,8 @@ const TaskInput = ({taskText, setTaskText, handleSaveTask, isEditing}) => {
         value={taskText}
         onChangeText={setTaskText}
       />
-      <TouchableOpacity>
-        <ThemedText style={styles.button} onPress={handleSaveTask}>
+      <TouchableOpacity onPress={handleSaveTask}>
+        <ThemedText style={styles.button}>
           {isEditing ? "編集" : "追加"}
         </ThemedText>
       </TouchableOpacity>

@@ -61,7 +61,7 @@ export default function HomeScreen() {
           taskText={taskText}
           setTaskText={setTaskText}
           handleSaveTask={handleSaveTask}
-          isEditing={isEditing !== null}
+          isEditing={isEditing}
         />
         <FlatList
           data={tasks}
